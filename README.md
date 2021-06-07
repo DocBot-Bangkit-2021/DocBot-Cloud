@@ -25,8 +25,8 @@ DocBot
 * Deployment Application (C2242155 - Nurul Uswatun Hasanah)
 
 
-[![GitHub stars](https://img.shields.io/github/stars/DocBot-Bangkit-2021/DocBot-MachineLearningModels)](https://github.com/DocBot-Bangkit-2021/DocBot-MachineLearningModels)
-[![GitHub forks](https://img.shields.io/github/forks/DocBot-Bangkit-2021/DocBot-MachineLearningModels)](https://github.com/DocBot-Bangkit-2021/DocBot-MachineLearningModels)
+[![GitHub stars](https://img.shields.io/github/stars/DocBot-Bangkit-2021/DocBot-Cloud)](https://github.com/DocBot-Bangkit-2021/DocBot-Cloud)
+[![GitHub forks](https://img.shields.io/github/forks/DocBot-Bangkit-2021/DocBot-Cloud)](https://github.com/DocBot-Bangkit-2021/DocBot-Cloud)
 
 # DocBot-ML
 This project is our final project for Google Bangkit Academy 2021.
