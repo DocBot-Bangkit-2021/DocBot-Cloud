@@ -1,4 +1,4 @@
-# Recomendation API
+# Articles API
 
 ## get all info covid
 
