@@ -2,7 +2,7 @@
 
 ## get all info covid
 
-gat data health info for covid
+get data health info for covid
 
 **URL** : `https://asia-southeast2-light-maker-******.cloudfunctions.net/covidinfo`
 
