@@ -1,3 +1,52 @@
+<h1 align="center">
+  <img align="center" src="/misc/img/icon.png"  width="270"></img>
+<br>
+DocBot
+</h1>
+
+# Profile
+
+### Team ID : B21-CAP0362
+
+### Members
+
+* M2082044 - [Nur Imam Masri](https://github.com/nurimammasri)
+* M2242154 - [Rafkah Rizqia](https://github.com/rafkahrizqia)
+* A0131304 - [Dian Arisma Wicakso](https://github.com/dianarisma86)
+* A0141345 - [I Made Ari Widiarsana](https://github.com/widiar)
+* C2242155 - [Nurul Uswatun Hasanah](https://github.com/nuruluswatun)
+
+### Roles/personnel
+
+* Project Plan (M2082044 - Nur Imam Masri)
+* UI/UX (C2242155 - Nurul Uswatun Hasanah, M2242154 - Rafkah Rizqia)
+* Build Machine Learning Model (M2082044 - Nur Imam Masri, M2242154 - Rafkah Rizqia)
+* Android Development (A0131304 - Dian Arisma Wicakso, A0141345 - I Made Ari Widiarsana)
+* Deployment Application (C2242155 - Nurul Uswatun Hasanah)
+
+
+[![GitHub stars](https://img.shields.io/github/stars/DocBot-Bangkit-2021/DocBot-MachineLearningModels)](https://github.com/DocBot-Bangkit-2021/DocBot-MachineLearningModels)
+[![GitHub forks](https://img.shields.io/github/forks/DocBot-Bangkit-2021/DocBot-MachineLearningModels)](https://github.com/DocBot-Bangkit-2021/DocBot-MachineLearningModels)
+
+# DocBot-ML
+This project is our final project for Google Bangkit Academy 2021.
+
+**Machine Learning:**
+[DocBot-ML](https://github.com/DocBot-Bangkit-2021/DocBot-MachineLearningModels)
+
+**Android:**
+[DocBotApp](https://github.com/DocBot-Bangkit-2021/DocBotApp)
+
+## Features
+
+- [x] ML-API Deployment
+- [x] Health-Info
+  - [x] Disease Info
+  - [x] Fruits and Vegetables Info
+  - [x] Covid Info
+  - [x] Health Unit (Puskesmas, Rumah Sakit, ...)
+
+
 # API for ML
 
 **Deploy use** : Cloud Run Google CLoud Flatform
@@ -26,6 +75,7 @@ Application is working
 ## PREDICT THE IMAGE FOR DISEASES AND FRUITSVEGETABLES
 
 **URL Diseases** : `https://docbotml-api-**********-et.a.run.app`
+
 **URL Fruits Vegetables** : `https://docbotml-api-**********-et.a.run.app/process`
 
 **Method** : `POST`
