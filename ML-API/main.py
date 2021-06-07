@@ -1,4 +1,5 @@
 import os
+import pandas as pd
 from flask import Flask, jsonify, request
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.models import load_model
@@ -13,12 +14,14 @@ fruits_labels = {0: "apple", 1: "banana", 2: "broccoli",
 disease_labels = {0: "cataracts", 1: "conjunctivitis",
                   2: "melanoma", 3: "nail_fungus"}
 
+covid_labels = {0: "Suspected", 1: "SARS-CoV-2 Positive"}
+
 # Process image and predict label
 
 
 def processFruitsImg(IMG_PATH):
     # load model
-    model = load_model("./model_fruitsvegetables.h5", custom_objects={
+    model = load_model("./ML-API/model_fruitsvegetables.h5", custom_objects={
                        'KerasLayer': tfhub.KerasLayer})
 
     img = image.load_img(IMG_PATH, target_size=(150, 150))
@@ -49,7 +52,7 @@ def processFruitsImg(IMG_PATH):
 
 def processDiseasesImg(IMG_PATH):
     # load model
-    model = load_model("./model_disease.h5", custom_objects={
+    model = load_model("./ML-API/model_disease.h5", custom_objects={
                        'KerasLayer': tfhub.KerasLayer})
 
     img = image.load_img(IMG_PATH, target_size=(224, 224))
@@ -71,6 +74,22 @@ def processDiseasesImg(IMG_PATH):
         value = 'Melanoma'
     else:
         value = 'Nail Fungus'
+    return value
+
+
+def processCovid(data):
+    # load model
+    model = load_model("./ML-API/model_covid19.h5", custom_objects={
+                       'KerasLayer': tfhub.KerasLayer})
+
+    print(data)
+    predictions = model.predict(data)
+
+    predicted_class_indices = np.where(predictions < 0.5, 0, 1)
+    if predicted_class_indices == 0:
+        value = 'Suspected'
+    else:
+        value = 'SARS-CoV-2 Positive'
     return value
 
 
@@ -112,17 +131,56 @@ def diseaseReq():
 
     return jsonify({"result": resp})
 
-# Process images Diseases
+# Process Covid
 
 
 @app.route("/covid", methods=["POST"])
 def covidReq():
-    if 'img' not in request.files:
-        return jsonify({"error": "Image is empty"})
-    data = request.files["img"]
-    data.save("img.jpg")
+    items = ['age', 'gender', 'fever', 'cough', 'runny_nose', 'muscle_soreness',
+             'pneumonia', 'diarrhea', 'lung_infection', 'travel_history',
+             'isolation']
+    items_cat = ['gender', 'fever', 'cough', 'runny_nose', 'muscle_soreness',
+                 'pneumonia', 'diarrhea', 'lung_infection', 'travel_history', 'isolation']
+    for item in items:
+        if item not in request.form:
+            msg = item + " is empty"
+            return jsonify({"error": msg})
 
-    resp = processCovidImg("img.jpg")
+    gender = str(request.form['gender'])
+    age = int(request.form['age'])
+    age = (age - 1) / (96 - 1)
+    fever = int(request.form['fever'])
+    cough = int(request.form['cough'])
+    runny_nose = int(request.form['runny_nose'])
+    muscle_soreness = int(request.form['muscle_soreness'])
+    pneumonia = int(request.form['pneumonia'])
+    diarrhea = int(request.form['diarrhea'])
+    lung_infection = int(request.form['lung_infection'])
+    travel_history = int(request.form['travel_history'])
+    isolation = int(request.form['isolation'])
+
+    data_dummy = [age, "female" if gender == "male" else "female",
+                  0 if fever == 1 else 1,
+                  0 if cough == 1 else 1,
+                  0 if runny_nose == 1 else 1,
+                  0 if muscle_soreness == 1 else 1,
+                  0 if pneumonia == 1 else 1,
+                  0 if diarrhea == 1 else 1,
+                  0 if lung_infection == 1 else 1,
+                  0 if travel_history == 1 else 1,
+                  0 if isolation == 1 else 1]
+
+    data = [[age, gender,  fever, cough, runny_nose, muscle_soreness,
+            pneumonia, diarrhea, lung_infection, travel_history,
+            isolation], data_dummy]
+
+    data_df = pd.DataFrame(data=data, columns=items)
+
+    features_cat = pd.get_dummies(data_df[items_cat].astype('category'))
+    features = pd.concat([data_df, features_cat], axis=1)
+    features = features.drop(columns=items_cat).loc[[0], :]
+
+    resp = processCovid(features)
 
     return jsonify({"result": resp})
 
