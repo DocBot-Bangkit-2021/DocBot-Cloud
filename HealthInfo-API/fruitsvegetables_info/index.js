@@ -13,6 +13,8 @@ const article = (req, res) => {
     {
       name: "Banana",
       id: 1,
+      vitamin: "kalsium, magnesium, fosfor, besi, vitamin A, C, B kompleks, B6",
+      benefits: "sumber karbohidrat, perlancar metabolisme, meningkatkan kekebalan tubuh dan lain-lain",
       icon: "https://storage.googleapis.com/health-info/fruitandvege/banana.jpg",
       article: [
         {
@@ -38,6 +40,8 @@ const article = (req, res) => {
     {
       name: "Apple",
       id: 2,
+      vitamin: "karbohidrat, serat, vitamin C, potasium, vitamin K, vitamin A, vitamin E, vitamin B1, vitamin B2, dan vitamin B6",
+      benefits: "meningkatkan kinerja otak, memelihara kesehatan jantung, membangun kekebalan tubuh dan lain-lain",
       icon: "https://storage.googleapis.com/health-info/fruitandvege/apple.jpg",
       article: [
         {
@@ -63,6 +67,8 @@ const article = (req, res) => {
     {
       name: "Orange",
       id: 3,
+      vitamin: "kalium, vitamin C, vitamin B1, vitamin B9, kalsium",
+      benefits: "mengatasi sariawan, menurunkan kolestrol, menetralisir tubuh dan lain-lain",
       icon: "https://storage.googleapis.com/health-info/fruitandvege/orange.jpg",
       article: [
         {
@@ -88,6 +94,8 @@ const article = (req, res) => {
     {
       name: "Brocolli",
       id: 4,
+      vitamin: "zat besi, kalsium, magnesium, vitamin A, B1, B2, B3, B5, B6, C, D, E, dan K",
+      benefits: "detoksifikasi tubuh, meningkatkan sistem imunitas tubuh, menjaga kesehatan tulang dan jantung dan lain-lain",
       icon: "https://storage.googleapis.com/health-info/fruitandvege/brocolli.jpg",
       article: [
         {
@@ -113,6 +121,8 @@ const article = (req, res) => {
     {
       name: "Carrot",
       id: 5,
+      vitamin: "zat besi, fosfor, kalsium, biotin, vitamin K1, vitamin B6, kalium, vitamin A",
+      benefits: "menjaga kesehatan mata, kaya akan nutrisi, mencegah konstipasi, baik untuk otak dan lain-lain",
       icon: "https://storage.googleapis.com/health-info/fruitandvege/carrot.jpg",
       article: [
         {
@@ -138,6 +148,8 @@ const article = (req, res) => {
     {
       name: "Tomato",
       id: 6,
+      vitamin: "vitamin A, vitamin C, vitamin K, kalium, folat, dan lycopene",
+      benefits: "mencegah penyakit kanker, menurunkan tekanan darah, menjaga kesehatan jantung, melancarkan pencernaan dan lain-lain",
       icon: "https://storage.googleapis.com/health-info/fruitandvege/tomato.jpg",
       article: [
         {
